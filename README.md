@@ -51,11 +51,23 @@ Required columns:
 
 Weights are normalized automatically by default.
 
+### Interactive Brokers export
+
+You can also use an export from Interactive Brokers with columns like `Symbol`, `Weight %`, `Market Value`, or `Asset Class`.
+
+Example command:
+
+```bash
+stresslab-stress --portfolio data/ib_portfolio_template.csv --portfolio-source ib --returns data/sample_returns.csv
+```
+
 ### Returns CSV
 
 - First column: dates.
 - Remaining columns: asset tickers.
 - Values: daily returns, not prices.
+
+If you only have prices, convert them to returns before running the stress test.
 
 ## Outputs
 
@@ -66,6 +78,10 @@ Weights are normalized automatically by default.
 ## Notebook
 
 Open `notebooks/01_end_to_end_stress_lab.ipynb` for the full workflow.
+
+## Technical note
+
+See `research/09_PORTFOLIO_STRESS_PAPER.md` for the step-by-step paper-style explanation of the workflow, assumptions and limitations.
 
 ## Project structure
 

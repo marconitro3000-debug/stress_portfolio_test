@@ -27,7 +27,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Run a professional portfolio stress test.")
     parser.add_argument("--config", default=None, help="Optional YAML config with run settings.")
     parser.add_argument("--returns", default=None, help="CSV with dates as index and assets as columns.")
-    parser.add_argument("--portfolio", default=None, help="CSV with asset, weight and optional sector columns.")
+    parser.add_argument("--portfolio", default=None, help="CSV with asset, weight and optional sector columns, or an Interactive Brokers export.")
+    parser.add_argument("--portfolio-source", choices=["auto", "csv", "ib"], default=None, help="Force how the portfolio file is interpreted.")
     parser.add_argument("--scenarios", default=None, help="Folder or YAML file with stress scenarios.")
     parser.add_argument("--output", default=None, help="Markdown report output path.")
     parser.add_argument("--figure-output", default=None, help="Optional PNG bar chart for scenario losses.")
@@ -49,14 +50,18 @@ def main(argv: list[str] | None = None) -> int:
     figure_output = args.figure_output or config.get("figure_output")
     confidence = args.confidence if args.confidence is not None else float(config.get("confidence_level", 0.99))
     normalize_weights = args.normalize_weights if args.normalize_weights is not None else bool(config.get("normalize_weights", True))
+    portfolio_source = args.portfolio_source or config.get("portfolio_source", "auto")
 
     if not returns_path or not portfolio_path:
         parser.error("Both --returns and --portfolio are required, either directly or via --config.")
 
     returns = pd.read_csv(returns_path, index_col=0, parse_dates=True)
-    portfolio = pd.read_csv(portfolio_path)
-
-    engine = StressTestEngine(returns=returns, portfolio=portfolio, confidence_level=confidence, normalize_weights=normalize_weights)
+    engine = StressTestEngine(
+        returns=returns,
+        portfolio=_load_portfolio(portfolio_path, source=portfolio_source, normalize=normalize_weights),
+        confidence_level=confidence,
+        normalize_weights=normalize_weights,
+    )
     report = engine.run_all(scenarios=scenarios_path)
     report.to_markdown(output_path)
 
@@ -68,6 +73,17 @@ def main(argv: list[str] | None = None) -> int:
     if figure_output:
         print(f"Scenario chart written to {figure_output}")
     return 0
+
+
+def _load_portfolio(path: str | Path, source: str, normalize: bool) -> pd.DataFrame | object:
+    from .portfolio import Portfolio
+
+    portfolio_path = Path(path)
+    if source == "ib":
+        return Portfolio.from_interactive_brokers_csv(portfolio_path, normalize=normalize)
+    if source == "csv":
+        return Portfolio.from_csv(portfolio_path, normalize=normalize)
+    return Portfolio.from_path(portfolio_path, normalize=normalize, source="auto")
 
 
 if __name__ == "__main__":

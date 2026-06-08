@@ -15,6 +15,19 @@ Rules:
 - Weights are normalized automatically by default.
 - Disable normalization only if weights already sum to $1.0$.
 
+## `ib_portfolio_template.csv`
+
+Use this when exporting a portfolio from Interactive Brokers.
+
+Supported columns:
+
+- `Symbol`
+- `Weight %`
+- `Market Value`
+- `Asset Class`
+
+The loader accepts either percentage weights or market values.
+
 ## `sample_returns.csv`
 
 - First column should contain dates.

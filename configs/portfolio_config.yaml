@@ -5,3 +5,4 @@ scenarios_path: scenarios
 output_markdown: reports/example_stress_report.md
 figure_output: reports/scenario_losses.png
 normalize_weights: true
+portfolio_source: auto

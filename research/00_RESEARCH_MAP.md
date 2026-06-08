@@ -10,5 +10,6 @@ Portfolio Stress Lab is structured around institutional stress testing practice:
 6. Network fragility: correlation network centrality and cluster concentration.
 7. Regime conditioning: current volatility state and similar historical periods.
 8. Reporting: audit-style Markdown report with assumptions, warnings and limitations.
+9. Technical note: step-by-step paper-style explanation of the full workflow.
 
 The project is deliberately implemented as an applied repo rather than a pure library: the default workflow is `run_stress_test.py -> stress report`.
