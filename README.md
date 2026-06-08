@@ -10,6 +10,12 @@ Institutional-style portfolio stress testing project for evaluating downside ris
 
 This repo is designed as an applied project, not a generic package. You load a portfolio and return history, run stress scenarios, and generate an audit-style report.
 
+## Paper-style walkthrough
+
+If you want the step-by-step research version, open [notebooks/00_paper_walkthrough.ipynb](notebooks/00_paper_walkthrough.ipynb). It shows the project as a compact paper: problem, data, methodology, results and limitations.
+
+The full written note is in [research/09_PORTFOLIO_STRESS_PAPER.md](research/09_PORTFOLIO_STRESS_PAPER.md).
+
 ## What it does
 
 - Base portfolio risk: volatility, VaR, Expected Shortfall, max drawdown, skew and kurtosis.

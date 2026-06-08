@@ -1,5 +1,7 @@
 # Portfolio Stress Lab: Technical Note
 
+Open the paper-style notebook version at [notebooks/00_paper_walkthrough.ipynb](../notebooks/00_paper_walkthrough.ipynb) for a step-by-step walkthrough with the same structure.
+
 ## Abstract
 
 This project implements a reproducible portfolio stress testing workflow that accepts a user portfolio, aligns it with historical returns, runs scenario shocks, estimates tail risk and produces an audit-style report. The design goal is practical usability: a user can swap in their own CSV files, or an Interactive Brokers export, and obtain a consistent stress analysis without changing the code.
