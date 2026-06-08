@@ -81,6 +81,6 @@ portfolio-stress-lab/
 └── tests/
 ```
 
-## CV positioning
+## Project summary
 
 Built an institutional-style portfolio stress testing project that evaluates downside risk through scenario analysis, tail-risk modelling, reverse stress testing, network fragility and risk attribution, producing audit-ready portfolio risk reports.
