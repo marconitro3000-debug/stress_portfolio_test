@@ -1,78 +1,25 @@
 # Portfolio Stress Lab
 
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![GitHub repo](https://img.shields.io/badge/GitHub-stress__portfolio__test-black)](https://github.com/marconitro3000-debug/stress_portfolio_test)
+
 Institutional-style portfolio stress testing project for evaluating downside risk under adverse market scenarios.
+
+## Overview
 
 This repo is designed as an applied project, not a generic package. You load a portfolio and return history, run stress scenarios, and generate an audit-style report.
 
 ## What it does
 
-- Base portfolio risk: volatility, VaR, Expected Shortfall, max drawdown, skew, kurtosis.
-- Scenario stress testing: equity crash, volatility spike, correlation breakdown, liquidity crisis, sector shocks.
-- Reverse stress testing: find the shock required to breach a target loss.
-- Risk attribution: component risk contribution and scenario loss contribution.
-- Tail risk: historical and parametric VaR/ES, Student-t style approximation, EVT/POT proxy.
-- Correlation stress: downside correlation uplift and diversification failure.
-- Network fragility: correlation network centrality and cluster concentration proxy.
-- Institutional Markdown reporting.
-
-## Quickstart
-
-```bash
-pip install -e ".[dev]"
-python scripts/run_stress_test.py \
-  --returns data/sample_returns.csv \
-  --portfolio data/sample_portfolio.csv \
-  --scenarios scenarios \
-  --output reports/example_stress_report.md
-```
-
-Or from Python:
-
-```python
-import pandas as pd
-from stresslab.engine import StressTestEngine
-
-returns = pd.read_csv("data/sample_returns.csv", index_col=0, parse_dates=True)
-portfolio = pd.read_csv("data/sample_portfolio.csv")
-
-engine = StressTestEngine(returns=returns, portfolio=portfolio)
-report = engine.run_all()
-print(report.summary())
-report.to_markdown("reports/stress_report.md")
-```
-
-## Project structure
-
-```text
-portfolio-stress-lab/
-├── scripts/run_stress_test.py
-├── configs/
-├── data/
-├── scenarios/
-├── src/stresslab/
-│   ├── engine.py
-│   ├── portfolio.py
-│   ├── risk_metrics.py
-│   ├── var_es.py
-│   ├── scenarios.py
-│   ├── correlation_stress.py
-│   ├── liquidity_stress.py
-│   ├── tail_risk.py
-│   ├── reverse_stress.py
-│   ├── attribution.py
-# Portfolio Stress Lab
-
-Institutional-style portfolio stress testing project for evaluating downside risk under adverse market scenarios.
-
-## Highlights
-
 - Base portfolio risk: volatility, VaR, Expected Shortfall, max drawdown, skew and kurtosis.
 - Scenario stress testing: equity crash, volatility spike, correlation breakdown, liquidity crisis and sector shocks.
-- Reverse stress testing: approximate loss threshold and correlation-breakpoint analysis.
-- Risk attribution: component risk contribution, sector exposure and scenario loss attribution.
-- Tail risk: historical, parametric and Cornish-Fisher VaR/ES plus EVT-style proxy.
-- Portfolio diagnostics: concentration, correlation fragility and network centrality.
-- Professional outputs: Markdown report, optional chart export and notebook walkthrough.
+- Reverse stress testing: find the shock required to breach a target loss.
+- Risk attribution: component risk contribution, sector exposure and scenario loss contribution.
+- Tail risk: historical and parametric VaR/ES, Student-t style approximation and EVT/POT proxy.
+- Correlation stress: downside correlation uplift and diversification failure.
+- Network fragility: correlation network centrality and cluster concentration proxy.
+- Professional Markdown reporting and a notebook walkthrough.
 
 ## Quickstart
 
