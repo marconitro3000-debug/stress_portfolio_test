@@ -1,0 +1,6 @@
+name: liquidity_crisis
+description: Forced liquidation stress with higher volatility, higher correlation and liquidation haircut.
+equity_shock: -0.12
+vol_multiplier: 2.0
+correlation_uplift: 0.35
+liquidity_haircut: 0.035

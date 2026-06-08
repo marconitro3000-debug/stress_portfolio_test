@@ -1,0 +1,6 @@
+name: correlation_breakdown
+description: Diversification failure where average risky-asset correlations converge upward.
+equity_shock: -0.08
+vol_multiplier: 1.5
+correlation_uplift: 0.50
+liquidity_haircut: 0.01

@@ -1,0 +1,3 @@
+output_markdown: reports/example_stress_report.md
+include_methodology_notes: true
+figure_output: reports/scenario_losses.png

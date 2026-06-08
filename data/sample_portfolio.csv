@@ -1,0 +1,8 @@
+asset,weight,sector
+AAPL,0.2,Technology
+MSFT,0.2,Technology
+NVDA,0.15,Technology
+JPM,0.15,Financials
+XOM,0.1,Energy
+TLT,0.1,Bonds
+GLD,0.1,Gold

@@ -1,0 +1,6 @@
+name: equity_crash
+description: Broad risk-asset selloff with elevated volatility and higher correlations.
+equity_shock: -0.22
+vol_multiplier: 1.8
+correlation_uplift: 0.25
+liquidity_haircut: 0.005

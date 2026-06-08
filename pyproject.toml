@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portfolio-stress-lab"
+version = "0.1.0"
+description = "Institutional-style portfolio stress testing project"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "PyYAML>=6.0",
+  "scipy>=1.10",
+  "matplotlib>=3.7"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+notebooks = ["jupyter>=1.0", "ipykernel>=6.0"]
+
+[project.scripts]
+stresslab-stress = "stresslab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

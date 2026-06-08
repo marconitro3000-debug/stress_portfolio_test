@@ -1,0 +1,7 @@
+name: stagflation_shock
+description: Stagflation proxy with equities down, volatility up and liquidity haircut.
+equity_shock: -0.15
+vol_multiplier: 1.9
+correlation_uplift: 0.30
+liquidity_haircut: 0.015
+rates_shock_bps: 150

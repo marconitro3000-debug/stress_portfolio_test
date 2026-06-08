@@ -1,0 +1,8 @@
+name: sector_tech_shock
+description: Technology sector idiosyncratic crash.
+equity_shock: -0.03
+sector_shocks:
+  Technology: -0.25
+vol_multiplier: 1.6
+correlation_uplift: 0.15
+liquidity_haircut: 0.01
